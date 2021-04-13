@@ -1,11 +1,13 @@
 ---
-title: 控制CPU使用率
-tags: 杂七杂八
+title: [杂七杂八]控制CPU使用率
 date: 2021-04-13
+tags: 杂七杂八
 ---
 
+​	CPU的使用率通常指一段时间内忙碌的时间占比，据此，我们可以通过将时间划分为多份，使CPU在指定的时间内处于忙碌状态来控制CPU的使用率。需要注意的是，现代CPU一般具有多核，所以会出现CPU使用率超过100%的情况。以下代码实现了控制CPU的使用率，取自 muduo 的实例代码。
+
 ```c++
-//muduo/examples/procmon
+//muduo/examples/procmon/dummyload.cc
 
 #include "muduo/base/Atomic.h"
 #include "muduo/base/Condition.h"
@@ -198,4 +200,8 @@ int main(int argc, char* argv[])
   }
 }
 ```
+
+
+
+
 
