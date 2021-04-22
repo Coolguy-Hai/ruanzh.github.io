@@ -187,7 +187,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-22 10:06:34 / 修改时间：02:35:15" itemprop="dateCreated datePublished" datetime="2021-04-22T10:06:34+00:00">2021-04-22</time>
+              <time title="创建时间：2021-04-22 10:06:34 / 修改时间：02:47:25" itemprop="dateCreated datePublished" datetime="2021-04-22T10:06:34+00:00">2021-04-22</time>
             </span>
 
           
@@ -204,16 +204,16 @@
           <p>哈夫曼编码(Huffman Coding)，又称霍夫曼编码，是一种编码方式，可变字长编码(VLC)的一种。Huffman于1952年提出一种编码方法，该方法完全依据字符出现概率来构造异字头的平均长度最短的码字，有时称之为最佳编码，一般就叫做Huffman编码（有时也称为霍夫曼编码）。</p>
 <p>哈夫曼编码，主要目的是根据使用频率来最大化节省字符（编码）的存储空间。</p>
 <p>简易的理解就是，假如我有A,B,C,D,E五个字符，出现的频率（即权值）分别为5,4,3,2,1,那么我们第一步先取两个最小权值作为左右子树构造一个新树，即取1，2构成新树，其结点为1+2=3，如图：</p>
-<p><img src="https://img-blog.csdn.net/20180828202812256?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NjUzNTA1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p><img src="/images/post/post-4-1.png" alt="这里写图片描述"></p>
 <p>虚线为新生成的结点，第二步再把新生成的权值为3的结点放到剩下的集合中，所以集合变成{5,4,3,3}，再根据第二步，取最小的两个权值构成新树，如图：</p>
-<p><img src="https://img-blog.csdn.net/20180828202906929?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NjUzNTA1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p><img src="/images/post/post-4-2.png" alt="这里写图片描述"></p>
 <p>再依次建立哈夫曼树，如下图：</p>
-<p><img src="https://img-blog.csdn.net/20180828203039475?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NjUzNTA1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p><img src="/images/post/post-4-3.jpg" alt="这里写图片描述"></p>
 <p>其中各个权值替换对应的字符即为下图：</p>
-<p><img src="https://img-blog.csdn.net/20180828203113726?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NjUzNTA1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p><img src="/images/post/post-4-4.jpg" alt="这里写图片描述"></p>
 <p>所以各字符对应的编码为：A-&gt;11,B-&gt;10,C-&gt;00,D-&gt;011,E-&gt;010</p>
 <h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><blockquote>
-<p>Fence Repair (POJ 3253 )<br>农夫约翰为了修理栅栏，要将一块很长的木板切割成N块。准备切成的木板的长度为L1、L2、…、 LN，未切割前木板的长度恰好为切割后木板长度的总和。每次切断木板时，需要的开销为这块木板的长度。例如长度为21的木板要切成长度为5、8、8的三块木板。长21的木板切成长为13和8的板时，开销为21。 再将长度为13的板切成长度为5和8的板时，开销是13。于是合计开销是34。请求出按照目标要求将木板切割完最小的开销是<br>多少。<br><strong>限制条件</strong></p>
+<p>Fence Repair (POJ 3253 )<br>农夫约翰为了修理栅栏，要将一块很长的木板切割成N块。准备切成的木板的长度为L1、L2、…、 LN，未切割前木板的长度恰好为切割后木板长度的总和。每次切断木板时，需要的开销为这块木板的长度。例如长度为21的木板要切成长度为5、8、8的三块木板。长21的木板切成长为13和8的板时，开销为21。 再将长度为13的板切成长度为5和8的板时，开销是13。于是合计开销是34。请求出按照目标要求将木板切割完最小的开销是多少。<br><strong>限制条件</strong></p>
 <ul>
 <li>1≤N≤20000</li>
 <li>0≤Li≤50000</li>
@@ -271,7 +271,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-22 02:35:15" itemprop="dateModified" datetime="2021-04-22T02:35:15+00:00">2021-04-22</time>
+                <time title="修改时间：2021-04-22 02:47:25" itemprop="dateModified" datetime="2021-04-22T02:47:25+00:00">2021-04-22</time>
               </span>
 
           
@@ -353,7 +353,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-22 02:35:15" itemprop="dateModified" datetime="2021-04-22T02:35:15+00:00">2021-04-22</time>
+                <time title="修改时间：2021-04-22 02:47:25" itemprop="dateModified" datetime="2021-04-22T02:47:25+00:00">2021-04-22</time>
               </span>
 
           
@@ -450,7 +450,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-22 02:35:15" itemprop="dateModified" datetime="2021-04-22T02:35:15+00:00">2021-04-22</time>
+                <time title="修改时间：2021-04-22 02:47:25" itemprop="dateModified" datetime="2021-04-22T02:47:25+00:00">2021-04-22</time>
               </span>
 
           
@@ -540,7 +540,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-22 02:35:15" itemprop="dateModified" datetime="2021-04-22T02:35:15+00:00">2021-04-22</time>
+                <time title="修改时间：2021-04-22 02:47:25" itemprop="dateModified" datetime="2021-04-22T02:47:25+00:00">2021-04-22</time>
               </span>
 
           
