@@ -162,6 +162,84 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/22/post-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="RuanZh">
+      <meta itemprop="description" content="Get busy living or get busy dying.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="偷得浮生半日闲">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/22/post-4/" class="post-title-link" itemprop="url">【数据结构与算法】哈夫曼编码</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-22 10:06:34 / 修改时间：02:35:15" itemprop="dateCreated datePublished" datetime="2021-04-22T10:06:34+00:00">2021-04-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>哈夫曼编码(Huffman Coding)，又称霍夫曼编码，是一种编码方式，可变字长编码(VLC)的一种。Huffman于1952年提出一种编码方法，该方法完全依据字符出现概率来构造异字头的平均长度最短的码字，有时称之为最佳编码，一般就叫做Huffman编码（有时也称为霍夫曼编码）。</p>
+<p>哈夫曼编码，主要目的是根据使用频率来最大化节省字符（编码）的存储空间。</p>
+<p>简易的理解就是，假如我有A,B,C,D,E五个字符，出现的频率（即权值）分别为5,4,3,2,1,那么我们第一步先取两个最小权值作为左右子树构造一个新树，即取1，2构成新树，其结点为1+2=3，如图：</p>
+<p><img src="https://img-blog.csdn.net/20180828202812256?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NjUzNTA1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>虚线为新生成的结点，第二步再把新生成的权值为3的结点放到剩下的集合中，所以集合变成{5,4,3,3}，再根据第二步，取最小的两个权值构成新树，如图：</p>
+<p><img src="https://img-blog.csdn.net/20180828202906929?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NjUzNTA1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>再依次建立哈夫曼树，如下图：</p>
+<p><img src="https://img-blog.csdn.net/20180828203039475?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NjUzNTA1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>其中各个权值替换对应的字符即为下图：</p>
+<p><img src="https://img-blog.csdn.net/20180828203113726?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NjUzNTA1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>所以各字符对应的编码为：A-&gt;11,B-&gt;10,C-&gt;00,D-&gt;011,E-&gt;010</p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><blockquote>
+<p>Fence Repair (POJ 3253 )<br>农夫约翰为了修理栅栏，要将一块很长的木板切割成N块。准备切成的木板的长度为L1、L2、…、 LN，未切割前木板的长度恰好为切割后木板长度的总和。每次切断木板时，需要的开销为这块木板的长度。例如长度为21的木板要切成长度为5、8、8的三块木板。长21的木板切成长为13和8的板时，开销为21。 再将长度为13的板切成长度为5和8的板时，开销是13。于是合计开销是34。请求出按照目标要求将木板切割完最小的开销是<br>多少。<br><strong>限制条件</strong></p>
+<ul>
+<li>1≤N≤20000</li>
+<li>0≤Li≤50000</li>
+</ul>
+</blockquote>
+<p>最终每块木板带来的开销应为<strong>经历的切割次数*自身长度</strong>，我们可以将切割过程看成一颗二叉树，叶子节点即为最终的每块木板，其深度即为经历的切割次数。因此很容易可以想到，越深的叶子节点应对应越短的木板，进而我们可以参考哈夫曼树的构建过程来进行木板的切割。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36653505/article/details/81701181">哈夫曼编码的理解(Huffman Coding)_Never-Giveup的博客-CSDN博客</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/21/post-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -185,10 +263,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-21 12:08:34 / 修改时间：04:17:24" itemprop="dateCreated datePublished" datetime="2021-04-21T12:08:34+00:00">2021-04-21</time>
+              <time title="创建时间：2021-04-21 12:08:34" itemprop="dateCreated datePublished" datetime="2021-04-21T12:08:34+00:00">2021-04-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-22 02:35:15" itemprop="dateModified" datetime="2021-04-22T02:35:15+00:00">2021-04-22</time>
+              </span>
 
           
 
@@ -215,7 +299,7 @@
 <p>那些一文不名，赚的很少，上来就掏空六个钱包，非要定居上海北京的农耕思维者，只是空间的迁移模式的改变，本质根本不变。本质仍是到城市“务农”而已。</p>
 <p>无非是农村的房子换成了城市的房子，农田被换成固定的工作，农业工人变成工业工人与996码农。然后再复制农耕的模式，还要生几个孩子，孩子再上学，孩子再结婚，孩子再生孩子~~</p>
 <p>你的这一套农耕模式，在目前的农村尚且难以维系，到了什么东西都贵几倍的城市，能维系得了吗？根本就是痴人说梦~~</p>
-<p>对于我这种升级到海洋思维的人来说，咱真的看不懂<del>因为农耕模式比照当代的社会没有任何合理性啊</del></p>
+<p>对于我这种升级到海洋思维的人来说，咱真的看不懂，因为农耕模式比照当代的社会没有任何合理性啊~</p>
 <p>信息金融社会一个字：动（对应海洋文明）</p>
 <p>农耕社会一个字：定（对应农耕文明）</p>
 <p>进入信息金融社会，你还秉持农耕文明“定”的思维，你不受穷谁受穷？你不受穷，都没有天理了~~</p>
@@ -269,7 +353,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-21 04:17:24" itemprop="dateModified" datetime="2021-04-21T04:17:24+00:00">2021-04-21</time>
+                <time title="修改时间：2021-04-22 02:35:15" itemprop="dateModified" datetime="2021-04-22T02:35:15+00:00">2021-04-22</time>
               </span>
 
           
@@ -366,7 +450,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-21 04:17:24" itemprop="dateModified" datetime="2021-04-21T04:17:24+00:00">2021-04-21</time>
+                <time title="修改时间：2021-04-22 02:35:15" itemprop="dateModified" datetime="2021-04-22T02:35:15+00:00">2021-04-22</time>
               </span>
 
           
@@ -456,7 +540,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-21 04:17:24" itemprop="dateModified" datetime="2021-04-21T04:17:24+00:00">2021-04-21</time>
+                <time title="修改时间：2021-04-22 02:35:15" itemprop="dateModified" datetime="2021-04-22T02:35:15+00:00">2021-04-22</time>
               </span>
 
           
@@ -560,14 +644,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
